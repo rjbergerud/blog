@@ -1,11 +1,32 @@
 /*-----------------------------------*/
 /*--- IMPORT STYLES FOR FASTPAGES ---*/
-@import "minima/fastpages-styles";   
 
+body {
+  background-color: #f5f5f5 !important;
+  font-family: "Vollkorn", "Times New Roman", serif !important;
+}
 
+@import "minima/fastpages-styles";
+
+.home {
+  max-width: 700px;
+  margin: auto;
+}
+
+.blurb-meta {
+  float: right;
+  font-size: 90%;
+}
+
+dd {
+  display: list-item;
+  list-style-type: "\1F4AD";
+  padding-inline-start: 1ch;
+  margin-bottom: 1em;
+}
 
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
 
 // If you want to turn off dark background for syntax highlighting, comment or delete the below line.
-@import "minima/fastpages-dracula-highlight"; 
+@import "minima/fastpages-dracula-highlight";
