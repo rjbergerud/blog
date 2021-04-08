@@ -1,1 +1,1 @@
-Sitemap: https://rjbergerud.github.io/journal/sitemap.xml
+Sitemap: https://rjbergerud.github.io/sitemap.xml

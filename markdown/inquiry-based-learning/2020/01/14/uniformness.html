@@ -4,17 +4,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Search | Ryder Bergerud</title>
+<title>Empirical Tests for Uniformness | Ryder Bergerud</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Search" />
+<meta property="og:title" content="Empirical Tests for Uniformness" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="A learning journal" />
-<meta property="og:description" content="A learning journal" />
-<link rel="canonical" href="https://rjbergerud.github.io/search/" />
-<meta property="og:url" content="https://rjbergerud.github.io/search/" />
+<meta name="description" content="Some musings on uniform random number generators" />
+<meta property="og:description" content="Some musings on uniform random number generators" />
+<link rel="canonical" href="https://rjbergerud.github.io/markdown/inquiry-based-learning/2020/01/14/uniformness.html" />
+<meta property="og:url" content="https://rjbergerud.github.io/markdown/inquiry-based-learning/2020/01/14/uniformness.html" />
 <meta property="og:site_name" content="Ryder Bergerud" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-01-14T00:00:00-06:00" />
 <script type="application/ld+json">
-{"url":"https://rjbergerud.github.io/search/","@type":"WebPage","headline":"Search","description":"A learning journal","@context":"https://schema.org"}</script>
+{"url":"https://rjbergerud.github.io/markdown/inquiry-based-learning/2020/01/14/uniformness.html","@type":"BlogPosting","headline":"Empirical Tests for Uniformness","dateModified":"2020-01-14T00:00:00-06:00","datePublished":"2020-01-14T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://rjbergerud.github.io/markdown/inquiry-based-learning/2020/01/14/uniformness.html"},"description":"Some musings on uniform random number generators","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://rjbergerud.github.io/feed.xml" title="Ryder Bergerud" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" /><script src="https://hypothes.is/embed.js" async></script>
@@ -82,18 +84,57 @@ window.onload = wrap_img;
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <!-- adapted from https://github.com/pmarsceill/just-the-docs -->
-<script type="text/javascript" src="/assets/js/search.js"></script>
-<script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-<div class="search">
-    <div class="search-input-wrap">
-    <input type="text" class="js-search-input search-input input-block form-control" tabindex="0" placeholder="Search Ryder Bergerud" aria-label="Search Ryder Bergerud" autocomplete="off">
-    </div>
-    <br>
-    <div class="js-search-results search-results-wrap"></div>
-</div>
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Empirical Tests for Uniformness</h1><p class="page-description">Some musings on uniform random number generators</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-01-14T00:00:00-06:00" itemprop="datePublished">
+        Jan 14, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
 
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#markdown">markdown</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#inquiry-based-learning">inquiry-based-learning</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#empirical-tests-for-uniformness">Empirical Tests for Uniformness</a></li>
+</ul><h1 id="empirical-tests-for-uniformness">
+<a class="anchor" href="#empirical-tests-for-uniformness" aria-hidden="true"><span class="octicon octicon-link"></span></a>Empirical Tests for Uniformness</h1>
+
+<p>These musings take off from chapter 7 of <a href="https://books.google.ca/books/about/Simulation_Modeling_and_Analysis.html?id=6cC_QgAACAAJ&amp;redir_esc=y">Simulation Modelling and Analysis</a>.</p>
+
+<p>The beginning of this chapter asks the question <em>what makes a good arithmetic random number generator</em>? In taking his question to the reader as real and not rhetorical, here is an idea I explored.</p>
+
+<p>That it doesn’t “miss” numbers.  Though this is unreasonable for arithmetic generators with finite period, the most ideal $Unif(0,1)$ generator should be able to generate given enough time, generate any given number in the interval $[0,1]$.  Just the fact that generators spit out numbers at discrete-time intervals means that this is impossible though, given that it only makes countably many numbers on a uncountable set $[0,1]$.</p>
+
+<p>So maybe some weaker version of this might be possible.  Something that has the spirit of “that there are no gaps” that can exist in the sequence given enough time.  That is, given any interval that were a subset of $[0,1]$, no matter how small, we could expect given enough time that our generator would yield a numbe r in that interval.  Any of the generators like the linear congruential generators can’t do this because of their finite period.  So we at least need a generator with infinite period.  Such a generator can’t exist in an electronic computer because the computer can only assume finitely many states, and hence can only represent finitely-many states, and hence any generator must have a finite period.</p>
+
+<p>So we’ve thought up an ideal properties of random number generators, but which can’t exist in practice.  What then, after all, is Averill looking for in an ideal $Unif(0,1)$ generator?</p>
+
+<ul>
+  <li>No self-correlation (that is, $Cov(x_i, x_{i + j}) \to 0$)</li>
+  <li>performance</li>
+  <li>can reproduce the random numbers (without storing them)</li>
+</ul>
+
+  </div><a class="u-url" href="/markdown/inquiry-based-learning/2020/01/14/uniformness.html" hidden></a>
+</article>
       </div>
     </main><footer class="site-footer h-card">
   <data class="u-url" href="/"></data>
