@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (0) at (-9, 0) {};
+		\node [style=none] (1) at (-9, 7) {};
+		\node [style=none, label={above:v}] (3) at (-6, 7) {};
+		\node [style=none, label={above:w}] (4) at (-1, 2) {};
+		\node [style=none, label={below:$proj_w v$}] (5) at (-4.5, 1.15) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style=new edge style 0] (0.center) to (3.center);
+		\draw [style=new edge style 5] (0.center) to (4.center);
+		\draw [style=new edge style 12] (3.center) to (5.center);
+		\draw [style=new edge style 15] (0.center) to (5.center);
+	\end{pgfonlayer}
+\end{tikzpicture}
