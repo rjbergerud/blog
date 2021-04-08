@@ -1,0 +1,8 @@
+<div class="blurb">
+    <a class="blurb-link" href="{{ post.url | relative_url }}">
+    {{ post.title | escape }}
+    </a>
+{%- if site.show_description and post.description  -%} <span class="post-meta-description">{{ post.description }}</span>
+{%- endif -%}
+<span class="blurb-meta">{{ post.date | date: date_format }}</span>
+</div>

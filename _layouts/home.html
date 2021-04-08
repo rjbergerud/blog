@@ -22,7 +22,9 @@ layout: default
   {% assign posts = ''|split:'' %}
   {% for post in rawposts %}
     {% if post.hide != true %}
+    {% unless post.tags contains 'blurb' %}
       {% assign posts = posts|push:post%}
+    {% endunless %}
     {% endif %}
   {% endfor %}
 
@@ -81,13 +83,13 @@ layout: default
 
   {%- endif -%}
 
-  <h3> Small thoughts </h3>
+  <h3> Short and less complete thoughts </h3>
   <!-- blurbs - short posts -->
   <div class="blurb-list">
   {% assign t = 'blurb' %}
   <ul>
   {% for post in rawposts %}
-    {% if post.tags contains 'blurb' %}
+    {% if post.hide != true and post.tags contains 'blurb' %}
     <dd>
       {%- include blurb_list.html -%}
     </dd>
