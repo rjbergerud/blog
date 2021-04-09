@@ -442,6 +442,24 @@ header { font-family: "Segoe UI", SegoeUI, Roboto, "Segoe WP", "Helvetica Neue",
 
 .blurb-meta { float: right; font-size: 90%; }
 
+.post-content { max-width: calc(800px - (30px * 2)); margin-left: auto; margin-right: auto; }
+
+.input { width: calc(1000px - 30px*2); margin-left: -200px; }
+
+.output_wrapper { width: calc(1200px - 30px*2); margin-left: -200px; }
+
+.output_html { width: calc(1200px - 30px*2); display: inline-block; text-align: center; }
+
+details:not([open]) > :not(summary) { visibility: hidden; opacity: 0.8; top: -24px; position: relative; display: inherit !important; }
+
+.input { animation: 1s fadeIn; animation-fill-mode: none; animation-fill-mode: forwards; transition: all 0.3s ease-in-out; visibility: visible; opacity: 1; top: 0px; position: relative; }
+
+article { margin-left: -30px; margin-right: -30px; padding-right: 30px; padding-left: 30px; border: #eeeeee; border-left-width: 4px; border-left-style: solid; border-right-width: 4px; border-right-style: solid; }
+
+a { text-decoration: underline !important; text-decoration-color: #aaa; text-decoration-thickness: 0.4px; color: inherit !important; }
+
+a:hover { color: black !important; }
+
 dd { display: list-item; list-style-type: "\1F4AD"; padding-inline-start: 1ch; margin-bottom: 1em; }
 
 .katex { font-size: 1.17rem !important; }
