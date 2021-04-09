@@ -430,11 +430,11 @@ article.post { font-family: "Computer Modern Sans", sans-serif; }
 
 header { font-family: "Segoe UI", SegoeUI, Roboto, "Segoe WP", "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif; }
 
-.site-title { font-size: 1.0rem; color: #DDDDDD !important; }
+a.site-title { font-size: 1.0rem; color: #828282 !important; text-decoration-style: dotted !important; transition: 0.5s ease-in-out; }
 
-.site-nav .page-link { font-size: 1.0rem; color: #DDDDDD !important; }
+.site-nav .page-link { font-size: 1.0em; color: #828282 !important; text-decoration: none !important; margin-right: 0.6em !important; }
 
-.site-nav a:hover { color: !important #24292e; }
+.site-nav a:hover { color: #20222a !important; text-decoration: underline !important; text-decoration-thickness: 0.4px !important; }
 
 .home { max-width: 700px; margin: auto; }
 
@@ -444,7 +444,7 @@ header { font-family: "Segoe UI", SegoeUI, Roboto, "Segoe WP", "Helvetica Neue",
 
 .post-content { max-width: calc(800px - (30px * 2)); margin-left: auto; margin-right: auto; }
 
-.input { width: calc(1200px - 30px*2); margin-left: calc(-1*(1200px - 800px)/2); }
+.input { width: calc(1200px - 30px*2); margin-left: calc(-1*(1200px - 800px)/2); margin-bottom: 2.3rem; }
 
 .output_wrapper { width: calc(1200px - 30px*2); margin-left: -200px; }
 
@@ -460,7 +460,7 @@ article { margin-left: -30px; margin-right: -30px; padding-right: 30px; padding-
 
 a { text-decoration: underline !important; text-decoration-color: #aaa; text-decoration-thickness: 0.4px; color: inherit !important; }
 
-a:hover { color: black !important; }
+a:hover { color: #20252b !important; }
 
 dd { display: list-item; list-style-type: "\1F4AD"; padding-inline-start: 1ch; margin-bottom: 1em; }
 
