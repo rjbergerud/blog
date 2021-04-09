@@ -1,6 +1,8 @@
+
 /*-----------------------------------*/
 /*--- IMPORT STYLES FOR FASTPAGES ---*/
 @import "minima/fastpages-styles";
+@import "minima/custom-variables";
 
 body {
   background-color: #f5f5f5 !important;
@@ -10,7 +12,6 @@ body {
 article.post {
   font-family: "Computer Modern Sans", sans-serif;
 }
-
 
 header {
   font-family: "Segoe UI", SegoeUI, Roboto, "Segoe WP", "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif;
@@ -42,6 +43,73 @@ header {
 .blurb-meta {
   float: right;
   font-size: 90%;
+}
+
+.post-content {
+  max-width: calc(800px - (30px * 2));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Code cells
+.input {
+  width: calc(#{$content-width} - 30px*2);
+  margin-left: -200px;
+}
+
+// Other cell output like graphs
+.output_wrapper {
+  width: calc(1200px - 30px*2);
+  margin-left: -200px;
+}
+.output_html {
+  width: calc(1200px - 30px*2);
+  display: inline-block;
+  text-align: center;
+}
+
+details:not([open]) > :not(summary) {
+    visibility: hidden;
+    opacity: 0.8;
+    top: -24px;
+    position: relative;
+    display: inherit !important
+}
+
+.input {
+    animation: 1s fadeIn;
+        animation-fill-mode: none;
+    animation-fill-mode: forwards;
+    transition: all 0.3s ease-in-out;
+    visibility: visible;
+    opacity: 1;
+    top: 0px;
+    position: relative;
+}
+
+article {
+  margin-left: -30px;
+  margin-right: -30px;
+  padding-right: 30px;
+  padding-left: 30px;
+
+  border: #eeeeee;
+  // border-block-style: dotted;
+  border-left-width: 4px;
+  border-left-style: solid;
+  border-right-width: 4px;
+  border-right-style: solid;
+}
+
+a {
+  text-decoration: underline !important;
+  text-decoration-color: #aaa;
+  text-decoration-thickness: 0.4px;
+  color: inherit !important;
+}
+
+a:hover {
+  color: black !important;
 }
 
 dd {
