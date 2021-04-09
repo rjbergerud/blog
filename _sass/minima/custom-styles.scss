@@ -17,18 +17,26 @@ header {
   font-family: "Segoe UI", SegoeUI, Roboto, "Segoe WP", "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif;
 }
 
-.site-title {
+a.site-title {
   font-size: 1.0rem;
-  color: #DDDDDD !important;
-}
-.site-nav .page-link {
-  font-size: 1.0rem;
-  color: #DDDDDD !important;
+  color: #828282 !important;
+  text-decoration-style: dotted !important;
+  transition: 0.5s ease-in-out;
 }
 
-.site-nav a:hover {
-  color: !important #24292e;
+.site-nav .page-link {
+  font-size: 1.0em;
+  color: #828282 !important;
+  text-decoration: none !important;
+  margin-right: 0.6em !important;
 }
+
+.site-nav  a:hover {
+  color: #20222a !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 0.4px !important;
+}
+
 
 .home {
   max-width: 700px;
@@ -55,6 +63,7 @@ header {
 .input {
   width: calc(#{$content-width} - 30px*2);
   margin-left: calc(-1*(#{$content-width} - 800px)/2  );
+  margin-bottom: 2.3rem;
 }
 
 
@@ -132,7 +141,7 @@ a {
 }
 
 a:hover {
-  color: black !important;
+  color: #20252b !important;
 }
 
 dd {
